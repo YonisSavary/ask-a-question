@@ -1,0 +1,16 @@
+{% extends 'fullscreen.html' %}
+
+{% block content %}
+    <a href="/">Retour</a>
+    <h1>Inscription</h1>
+    <p>
+        Déjà Inscris ? <a href="/login">connectez vous juste ici !</a>
+    </p>
+    <form method="POST" class="flex-column">
+        {% csrf_token %}
+        {{ form }}
+        <section class="flex-row justify-end">
+            <input type="submit" class="button" value="Connexion"/>
+        </section>
+    </form>
+{% endblock %}

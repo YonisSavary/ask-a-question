@@ -1,0 +1,19 @@
+{% extends 'fullscreen.html' %}
+
+{% block content %}
+    <h1>Déconnecté</h1>
+    <p>
+        Merci d'avoir utilisé nos services ! <br>
+        Vous serez redirigé dans <span class="primary" id="countspan">5</span>
+    </p>
+    <script>
+        function countdown(amount){
+            if (amount === 0){
+                window.location.href = '/'
+            }
+            document.querySelector("#countspan").innerHTML = amount;
+            setTimeout(()=>{countdown(amount-1)}, 1000);
+        }
+        countdown(5);
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+            {% if title %}
+                {{ title }}
+            {% else %}
+                Ask A Question
+            {% endif %}
+        </title>
+        <link rel="stylesheet" href="{% static '/css/style.css' %}"/>
+        <meta charset="utf-8"/>
+    </head>
+    <body class="fullscreen">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+    {% block script %}{% endblock %}
+</html>

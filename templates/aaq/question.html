@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="card">
+        <h1>{{ question.title }}</h1>
+        <h2 class="small">Posée le {{ question.created_at }} par
+            <a href="/profile/{{ question.user.id }}">{{ question.user.username }}</a></h2>
+        <p>{{ question.content }}</p>
+        {% if question.tags %}
+            <span class="small">Tags: {{ question.tags }}</span>
+        {% endif %}
+    </section>
+
+    <section class="card">
+        {% if answers %}
+            <h1>Commentaires</h1>
+        {% else %}
+            <h1>Aucun Commentaire pour l'instant</h1>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <section id="comment_form_section">
+                <section class="flex-row space-between align-center">
+                    <h2 id="form_title">Poster un commentaire</h2>
+                    <span id="to_origin_button" class="button">Répondre au post</span>
+                </section>
+                <p id="form_sample"></p>
+                <form method="POST" class="flex-column">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" class="button" value="Commenter"/>
+                </form>
+            </section>
+        {% else %}
+            <p>
+                <a href="/register">Inscrivez-vous</a> ou <a href="/login">connectez-vous</a>
+                pour pouvoir commenter </p>
+        {% endif %}
+
+        {% for answer in answers %}
+            <section class="comment_section"
+             {% if answer.parent %}target="#comment_no_{{ answer.parent.id }}" {% endif %}>
+                <h2 id="comment_name_{{ answer.id }}">
+                    <a href="/profile/{{ answer.user.id }}">{{ answer.user.username }}</a>
+                    a répondu :
+                </h2>
+                <!-- ANSWERS CONTENT -->
+                <section class="flex-column">
+                    <p id="comment_content_{{ answer.id }}">{{ answer.content }}</p>
+                    {% if user.is_authenticated %}
+                        <a class="comment_button" href="" id="comment_id_{{ answer.id }}">Répondre</a>
+                    {% endif %}
+                </section>
+                <!-- ANSWERS TO ANSWERS -->
+                <section id="comment_no_{{ answer.id }}"></section>
+            </section>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static '/js/jquery.js' %}"></script>
+    <script src="{% static '/js/answer.js' %}"></script>
+{% endblock %}

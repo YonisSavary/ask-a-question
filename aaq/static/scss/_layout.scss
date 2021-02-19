@@ -1,0 +1,68 @@
+.flex-row
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row .reverse { flex-direction: row-reverse}
+
+.flex-column
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column .reverse { flex-direction: column-reverse}
+
+.flex-row .flex-filler
+{
+  flex: 1 0 0;
+}
+
+.flex-column .flex-filler
+{
+  flex: 0 1 0;
+}
+
+.justify-end
+{
+  justify-content: flex-end;
+}
+
+.justify-center
+{
+  justify-content: center;
+}
+
+.align-end
+{
+  align-items: flex-end;
+}
+
+.align-center
+{
+  align-items: center;
+}
+
+.space-evenly
+{
+  justify-content: space-evenly;
+}
+.space-between
+{
+  justify-content: space-between;
+}
+
+.full-width
+{
+  width: 100%;
+}
+
+.card
+{
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: $box-shadow;
+  padding: 1rem;
+  margin: 1rem 0;
+}

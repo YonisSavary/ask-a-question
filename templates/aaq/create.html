@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="card">
+        <h1>Poser une question</h1>
+        <form method="POST" class="flex-column">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="button" value="Confirmer">
+        </form>
+    </section>
+{% endblock %}

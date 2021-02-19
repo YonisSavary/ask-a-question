@@ -1,0 +1,55 @@
+:root
+{
+  font-size: 16px;
+}
+
+html, body
+{
+  scroll-behavior: smooth;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $light-gray;
+  color: $dark-gray;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body
+{
+  @extend .flex-column;
+}
+
+main
+{
+  @extend .flex-filler;
+  margin: 0 auto;
+  width: 60%;
+  padding: 2rem;
+  max-width: 1000px;
+}
+
+.fullscreen
+{
+  @extend .flex-column;
+  @extend .align-center;
+  @extend .justify-center;
+}
+
+.fullscreen main
+{
+  @extend .card;
+}
+
+@for $i from 1 to 5
+{
+  h#{$i}{
+    font-size: ((5-$i)*0.5)*1rem;
+  }
+}
+
+.small
+{
+  font-size: 0.8rem;
+  opacity: 0.5;
+}

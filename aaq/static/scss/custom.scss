@@ -1,0 +1,50 @@
+@import "variables";
+
+@import "root";
+@import "layout";
+
+@import "topbar";
+@import "input";
+
+@import "aaq";
+
+.icon
+{
+  width: 32px;
+  vertical-align: middle;
+  filter: invert(100%);
+}
+
+.icon-container
+{
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: $color-primary-0;
+  box-shadow: none;
+  transition: box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+.icon-container:hover
+{
+  box-shadow: $box-shadow;
+}
+
+a, a:visited, .primary
+{
+  color: $color-primary-0;
+}
+
+.comment-response
+{
+  border-left: 2px $color-primary-0 solid;
+  padding: .5rem 1rem;
+  margin: .5rem;
+  margin-top: 1rem;
+}
+
+.comment-response h2
+{
+  margin: 0;
+}

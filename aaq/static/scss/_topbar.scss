@@ -1,0 +1,38 @@
+.topbar
+{
+  @extend .flex-row;
+  @extend .align-center;
+  @extend .space-between;
+  padding: 1rem;
+}
+
+.topbar *
+{
+  margin: 0;
+}
+
+.topbar-title
+{
+  background-color: $color-primary-0;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.topbar-searchbar
+{
+  @extend .flex-row;
+  width: 50%;
+}
+
+.topbar-input
+{
+  width: 100%;
+  margin: auto 0.5rem;
+  height: max-content;
+}
+
+.topbar a
+{
+  margin: 0 .5rem;
+}

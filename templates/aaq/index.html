@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="flex-row space-between align-center">
+        {% if object_list %}
+            <h1>Dernières Questions :</h1>
+        {% else %}
+            <h1>Wow c'est vide ici ! <br> Personne n'a posé de question :(</h1>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a href="/create" class="button">Poser une question</a>
+        {% else %}
+            <a href="/login">Vous devez être connecté pour poser une question</a>
+        {% endif %}
+    </section>
+    {% if object_list %}
+        <section class="flex-column reverse">
+            {% for question in object_list %}
+                <section class="card question-resume">
+                    <a href="/question/{{ question.id }}"><h2>{{ question.title }}</h2></a>
+                    <span>{{ question.created_at }}</span>
+                </section>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
